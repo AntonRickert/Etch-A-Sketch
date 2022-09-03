@@ -1,17 +1,35 @@
 const grid_container = document.querySelector('#grid-container');
 
-grid_container.innerHTML = 'Press "New Grid" button';
+const startText = document.createElement('div');
+startText.textContent = 'Click "New Grid" button.';
+startText.classList.add('startText');
+grid_container.appendChild(startText);
 
 const newGrid = document.querySelector('#newGrid');
 newGrid.addEventListener('click', makeCanvas);
+const clear = document.querySelector('#clear');
+clear.addEventListener('click', clearCanvas);
+
 let div;
 let nodesize;
 let gridCalc;
+let borderRadius;
+let gridNodes;
+let nodeArr;
+
+
+
+function clearCanvas() {
+    for (let i = 0; i < nodeArr.length; i++) {
+        nodeArr[i].classList.remove('colored');
+    };
+}
+
 
 function makeCanvas() {
     calcGrid();
     drawGrid();
-    mouseOver();
+    drawPixel();
 }
 
 function calcGrid() {
@@ -24,24 +42,25 @@ function calcGrid() {
     }
     gridCalc = gridSize * gridSize;
     nodesize = 100 / gridSize + '%';
+    nodeSizeStyle = 100 / gridSize;
+    borderRadius = nodeSizeStyle * (100 / 90) + 'px';
 }
 
 function drawGrid() {
 for (let i = 0; i < gridCalc; i++) {
- 
+        
         div = document.createElement('div');
         div.classList.add('grid-node');
         grid_container.appendChild(div);
-        div.style.width = '';
-        div.style.height = '';
         div.style.width = nodesize;
         div.style.height = nodesize;
+        div.style.borderRadius = borderRadius;
     }
 }
 
-function mouseOver() {
-    const gridNodes = document.querySelectorAll('.grid-node');
-    const nodeArr = Array.from(gridNodes);
+function drawPixel() {
+    gridNodes = document.querySelectorAll('.grid-node');
+    nodeArr = Array.from(gridNodes);
 
     for (let i = 0; i < nodeArr.length; i++) {
         nodeArr[i].addEventListener('mouseover', function() {
