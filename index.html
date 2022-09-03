@@ -9,10 +9,23 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <h1>Etch-A-Sketch</h1>
+    <div id="grid-container"></div>
+
     <div id="buttons">
+        
+        
         <button id="newGrid" class="button">New Grid</button>
+        <div id="slider">
+            <div id="value">
+                <div>Grid Size: </div>
+                <div id="valueOutput">16 x 16</div>
+            </div>
+            <input type="range" min="1" max="50" value="16" class="slider" id="myRange">
+        </div>
+        <button id="random" class="button">Random RGB</button>
         <button id="clear" class="button">Clear</button>
     </div>
-    <div id="grid-container"></div>
+    
 </body>
 </html>
