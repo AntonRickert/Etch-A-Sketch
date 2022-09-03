@@ -5,14 +5,15 @@ body {
     align-items: center;
     background-color: #1d3557;
     font-family: 'Fira Code';
+    min-height: 98vh;
 }
 
 #grid-container {
     margin-top: 50%;
     display: flex;
     flex-wrap: wrap;
-    width: 1000px;
-    height: 1000px;
+    width: 900px;
+    height: 900px;
     border: 5px solid black;
     border-radius: 20px;
     padding: 10px;
@@ -44,13 +45,13 @@ h1 {
     display: flex;
     padding: 0;
     margin: 0;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 #slider {
     width: 240px;
-    height: 50px;
+    height: 42px;
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -75,25 +76,45 @@ h1 {
 }
 
 .button {
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     background-color: #457b9d;
     border: 3px solid black;
     border-radius: 15px;
     padding: 20px;
-    margin: 20px;
+    margin: 10px;
     font-family: 'Fira Code';
-    width: 240px;
+    width: 200px;
 }
 
 #clear {
     background-color: #caf0f8;
     color: black;
+
+    text-align: center;
+    padding: 20px 10px;
 }
 
 .startText {
     font-size: 24px;
     font-weight: 600;
+}
+
+#eraser {
+    width: 120px;
+    padding: 20px 10px;
+    background-color: #1d3557;
+    color: white;
+}
+
+.clicked {
+    background-color: white;
+}
+
+#eraser.toggled {
+    
+    background-color: #caf0f8;
+    color: black;
 }
 
 #random {
@@ -126,4 +147,10 @@ h1 {
     100% {
       background-color: #FF1493;
     }
+  }
+
+  footer {
+    margin-top: auto;
+    color: white;
+    font-size: 20px;
   }

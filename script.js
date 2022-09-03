@@ -1,7 +1,7 @@
 const grid_container = document.querySelector('#grid-container');
 const valueContainer = document.querySelector('#value');
 const startText = document.createElement('div');
-startText.textContent = 'Click "New Grid" button.';
+startText.textContent = 'Click "New Grid" or "Random RGB" button.';
 startText.classList.add('startText');
 grid_container.appendChild(startText);
 
@@ -17,6 +17,7 @@ slider.addEventListener('input', updateValue);
 
 const randomRGB = document.querySelector('#random');
 randomRGB.addEventListener('click', makeCanvasRandom);
+
 
 let div;
 let nodesize;
@@ -40,6 +41,7 @@ function updateValue(){
 function clearCanvas() {
     for (let i = 0; i < nodeArr.length; i++) {
         nodeArr[i].classList.remove('colored');
+        nodeArr[i].style.backgroundColor = '';
     };
 }
 
@@ -92,6 +94,7 @@ function drawPixelBlue() {
         });
     }
 }
+
 function drawPixelRandom() {
     gridNodes = document.querySelectorAll('.grid-node');
     nodeArr = Array.from(gridNodes);
