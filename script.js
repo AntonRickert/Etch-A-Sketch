@@ -1,32 +1,59 @@
 const grid_container = document.querySelector('#grid-container');
 
+grid_container.innerHTML = 'Press "New Grid" button';
+
+const newGrid = document.querySelector('#newGrid');
+newGrid.addEventListener('click', makeCanvas);
 let div;
-let gridSize;
-let gridCalc;
 let nodesize;
+let gridCalc;
 
-gridCalculation();
-
-for (let i = 0; i < gridCalc; i++) {
-    div = document.createElement('div');
-    div.classList.add('grid-node');
-    grid_container.appendChild(div);
-    div.style.width = nodeSize;
-    div.style.height = nodeSize;
+function makeCanvas() {
+    calcGrid();
+    drawGrid();
+    mouseOver();
 }
 
-const gridNodes = document.querySelectorAll('.grid-node');
-const nodeArr = Array.from(gridNodes);
-
-for (let i = 0; i < nodeArr.length; i++) {
-    nodeArr[i].addEventListener('mouseover', function() {
-        nodeArr[i].classList.add('colored');
-    });
-}
-function gridCalculation() {
-    gridSize = prompt('Enter grid size');
+function calcGrid() {
+    grid_container.innerHTML = '';
+    let gridSize = prompt('Enter grid size from 1 - 100');
+        
+    if (gridSize > 100 || gridSize < 1) {
+        alert('Please enter a valid grid size.')
+        calcGrid();
+    }
     gridCalc = gridSize * gridSize;
-    nodeSize = 100 / gridSize + '%';
+    nodesize = 100 / gridSize + '%';
 }
+
+function drawGrid() {
+for (let i = 0; i < gridCalc; i++) {
+ 
+        div = document.createElement('div');
+        div.classList.add('grid-node');
+        grid_container.appendChild(div);
+        div.style.width = '';
+        div.style.height = '';
+        div.style.width = nodesize;
+        div.style.height = nodesize;
+    }
+}
+
+function mouseOver() {
+    const gridNodes = document.querySelectorAll('.grid-node');
+    const nodeArr = Array.from(gridNodes);
+
+    for (let i = 0; i < nodeArr.length; i++) {
+        nodeArr[i].addEventListener('mouseover', function() {
+            nodeArr[i].classList.add('colored');
+        });
+    }
+}
+
+
+
+
+
+
 
 
