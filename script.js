@@ -1,6 +1,7 @@
 const grid_container = document.querySelector('#grid-container');
 const valueContainer = document.querySelector('#value');
 const startText = document.createElement('div');
+
 startText.textContent = 'Click "New Grid" or "Random RGB" button.';
 startText.classList.add('startText');
 grid_container.appendChild(startText);
@@ -25,6 +26,7 @@ let gridCalc;
 let borderRadius;
 let gridNodes;
 let nodeArr;
+
 function random_rgba() {
     const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
     const r = randomBetween(0, 255);
