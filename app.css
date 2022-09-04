@@ -84,6 +84,7 @@ h1 {
     padding: 20px;
     margin: 10px;
     width: 200px;
+    font-family: FiraCode;
 }
 
 #clear {
@@ -99,22 +100,8 @@ h1 {
     font-weight: 600;
 }
 
-#eraser {
-    width: 120px;
-    padding: 20px 10px;
-    background-color: #1d3557;
-    color: white;
-}
 
-.clicked {
-    background-color: white;
-}
 
-#eraser.toggled {
-    
-    background-color: #caf0f8;
-    color: black;
-}
 
 #random {
     background-color: #FF0000;
